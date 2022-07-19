@@ -1,4 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
+const NoProductBar = lazy(
+  () => import("../component/NoProductBar/NoProductBar")
+);
 // import CategoryList from "../component/CategoryList/CategoryList";
 const CategoryList = lazy(
   () => import("../component/Category/CategoryList/CategoryList")
@@ -23,11 +26,12 @@ const Shop: React.FC = () => {
     <>
       <Suspense fallback={"Loading..."}>
         <section className="flex justify-center">
-          <div className="my-20 flex w-[80%]">
+          <div className="my-20 w-[80%] md:flex">
             <div className="mr-6 min-w-[250px]">
               <CategoryList />
             </div>
             <div className="w-full">
+              {!products && <NoProductBar />}
               <div className="flex flex-wrap justify-between">
                 {products?.map((product) => (
                   <ProductCard {...product} key={product.id} />
