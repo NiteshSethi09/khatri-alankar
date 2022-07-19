@@ -25,7 +25,7 @@ const Category: React.FC = () => {
     <>
       <section className="flex justify-center py-20">
         <div className="w-[80%]">
-          <div className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap justify-center md:justify-between">
             {posts?.map((item: ProductItemProps) => (
               <CategoryItem {...item} key={item.id} />
             ))}
