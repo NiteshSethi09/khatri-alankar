@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-and-hover {
+    @apply text-[#222] transition duration-150 hover:text-[#c29958];
+  }
+}
