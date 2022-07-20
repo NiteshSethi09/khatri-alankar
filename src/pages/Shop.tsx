@@ -1,27 +1,10 @@
-import { lazy, Suspense, useEffect, useState } from "react";
-const NoProductBar = lazy(
-  () => import("../component/NoProductBar/NoProductBar")
-);
-// import CategoryList from "../component/CategoryList/CategoryList";
+import { lazy, Suspense } from "react";
+import ProductsSection from "../component/ProductsSection/ProductsSection";
 const CategoryList = lazy(
   () => import("../component/Category/CategoryList/CategoryList")
 );
-// import ProductCard from "../component/ProductCard/ProductCard";
-const ProductCard = lazy(() => import("../component/ProductCard/ProductCard"));
-import Logic from "../utility/Logic";
-import { Products } from "../utility/Logic.model";
 
 const Shop: React.FC = () => {
-  const [products, setProducts] = useState<Products[]>();
-
-  useEffect(() => {
-    Logic.getAllProducts().then((data) => setProducts(data));
-
-    return () => {
-      Logic.getAllProducts();
-    };
-  }, []);
-
   return (
     <>
       <Suspense fallback={"Loading..."}>
@@ -31,12 +14,7 @@ const Shop: React.FC = () => {
               <CategoryList />
             </div>
             <div className="w-full">
-              {!products && <NoProductBar />}
-              <div className="flex flex-wrap justify-between">
-                {products?.map((product) => (
-                  <ProductCard {...product} key={product.id} />
-                ))}
-              </div>
+              <ProductsSection />
             </div>
           </div>
         </section>
