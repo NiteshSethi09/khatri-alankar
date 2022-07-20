@@ -1,5 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://khatri-alankar.herokuapp.com/api",
+  baseURL: import.meta.env.VITE_API_URL,
 });
+
+export { instance as axiosInstance };
