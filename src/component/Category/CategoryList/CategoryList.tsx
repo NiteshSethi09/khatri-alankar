@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Logic from "../../../utility/Logic";
 import { ProductItemProps } from "../Category.model";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState<ProductItemProps[]>();
+  const [, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     Logic.getCategories().then((data) => setCategories(data));
@@ -20,9 +22,15 @@ const CategoryList = () => {
           Categories
         </h3>
         <ul>
-          {categories?.map((cate) => (
-            <li key={cate.id} className="text-and-hover mb-2 text-sm">
-              {cate.category}
+          {categories?.map((category) => (
+            <li
+              key={category.id}
+              className="text-and-hover mb-2 text-sm"
+              onClick={() =>
+                setSearchParams({ category: `${category.category}` })
+              }
+            >
+              {category.category}
             </li>
           ))}
         </ul>
