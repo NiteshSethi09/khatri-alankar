@@ -3,8 +3,8 @@ import { Products } from "../../utility/Logic.model";
 const ProductCard: React.FC<Products> = (props) => {
   return (
     <>
-      <figure className="mb-6 w-[300px] border-2 bg-[#f8f8f8] bg-cover">
-        <div className="h-[300px]">
+      <figure className="mb-6 w-full border-2 bg-[#f8f8f8] bg-cover last:mb-0 md:mx-4 md:w-[280px] md:last:mb-6">
+        <div className="h-[280px]">
           <img
             loading="lazy"
             src={props.images.at(0)}

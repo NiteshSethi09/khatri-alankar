@@ -10,10 +10,10 @@ const Shop: React.FC = () => {
       <Suspense fallback={"Loading..."}>
         <section className="flex justify-center">
           <div className="my-20 w-[80%] md:flex">
-            <div className="mr-6 min-w-[250px]">
+            <div className="min-w-[250px]">
               <CategoryList />
             </div>
-            <div className="w-full">
+            <div className="w-full md:pl-4">
               <ProductsSection />
             </div>
           </div>

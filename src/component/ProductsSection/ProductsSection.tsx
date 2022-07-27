@@ -40,7 +40,7 @@ const ProductsSection = () => {
   return (
     <>
       {products?.length == 0 && <NoProductBar />}
-      <div className="flex flex-wrap justify-between">
+      <div className="flex flex-wrap">
         {products?.map((product) => (
           <ProductCard {...product} key={product.id} />
         ))}
