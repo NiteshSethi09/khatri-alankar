@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Logic from "../../utility/Logic";
+import Loader from "../Loader/Loader";
 import Pagination from "../Pagination/Pagination";
 import { ProductItemProps } from "./Category.model";
 import CategoryItem from "./CategoryItem";
@@ -21,11 +22,13 @@ const Category: React.FC = () => {
   const indexOfFirstPost: number = indexOfLastPost - postPerPage;
   const posts = data?.slice(indexOfFirstPost, indexOfLastPost);
 
+  if (!data) return <Loader />;
+
   return (
     <>
       <section className="flex justify-center py-20">
         <div className="w-[80%]">
-          <div className="flex flex-wrap justify-center md:justify-between">
+          <div className="flex flex-wrap justify-between">
             {posts?.map((item: ProductItemProps) => (
               <CategoryItem {...item} key={item.id} />
             ))}
