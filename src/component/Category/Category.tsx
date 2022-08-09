@@ -20,6 +20,10 @@ const Category: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [input]);
+
   const indexOfLastPost: number = currentPage * postPerPage;
   const indexOfFirstPost: number = indexOfLastPost - postPerPage;
   const filteredPosts = data?.filter((post) =>
@@ -48,7 +52,7 @@ const Category: React.FC = () => {
               setCurrentPage={setCurrentPage}
               currentPage={currentPage}
               postPerPage={postPerPage}
-              totalPostsSize={data?.length!}
+              totalPostsSize={filteredPosts?.length!}
             />
           </div>
         </div>
