@@ -28,7 +28,7 @@ const ProductsSection = () => {
           }
         );
 
-        const { data } = productsData.data;
+        const { data } = productsData.data.data;
         setProducts(data);
       } catch (e) {
         throw new Error("There must be some network issue.");
