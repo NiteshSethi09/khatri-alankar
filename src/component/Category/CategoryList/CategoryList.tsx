@@ -25,7 +25,7 @@ const CategoryList = () => {
           {categories?.map((category) => (
             <li
               key={category.id}
-              className="text-and-hover mb-2 text-sm"
+              className="text-and-hover mb-2 cursor-pointer select-none text-sm"
               onClick={() =>
                 setSearchParams({ category: `${category.category}` })
               }

@@ -28,7 +28,7 @@ const ProductsSection = () => {
           }
         );
 
-        const { data } = productsData.data;
+        const { data } = productsData.data.data;
         setProducts(data);
       } catch (e) {
         throw new Error("There must be some network issue.");
@@ -40,7 +40,7 @@ const ProductsSection = () => {
   return (
     <>
       {products?.length == 0 && <NoProductBar />}
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-between md:justify-start">
         {products?.map((product) => (
           <ProductCard {...product} key={product.id} />
         ))}

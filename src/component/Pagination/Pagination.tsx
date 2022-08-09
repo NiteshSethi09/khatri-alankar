@@ -20,7 +20,7 @@ const Pagination: React.FC<paginationProps> = ({
             {(currentPage - 1) * postPerPage + 1}
           </span>
           &nbsp;to&nbsp;
-          <span className="disabled:{} font-semibold text-gray-900 dark:text-white">
+          <span className="font-semibold text-gray-900 dark:text-white">
             {currentPage * postPerPage <= totalPostsSize
               ? currentPage * postPerPage
               : totalPostsSize}
@@ -29,7 +29,7 @@ const Pagination: React.FC<paginationProps> = ({
           <span className="font-semibold text-gray-900 dark:text-white">
             {totalPostsSize}
           </span>
-          &nbsp;Entries
+          &nbsp;Categories
         </span>
 
         <div className="xs:mt-0 mt-2 inline-flex">
